@@ -1,5 +1,5 @@
 {
-	"name": "events",
+	"name": "aws-appsync-events",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
