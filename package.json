@@ -1,32 +1,32 @@
 {
-	"name": "aws-appsync-events",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
-	},
-	"dependencies": {
-		"babel-preset-expo": "^4.0.0",
-		"react": "16.0.0",
-		"react-native": "^0.49.5"
-	},
-	"devDependencies": {
-		"babel-jest": "21.2.0",
-		"babel-preset-react-native": "4.0.0",
-		"jest": "21.2.1",
-		"react-test-renderer": "16.0.0",
-		"aws-appsync": "1.0.0",
-		"aws-appsync-react": "1.0.0",
-		"aws-sdk": "^2.156.0",
-		"graphql-tag": "^2.5.0",
-		"moment": "^2.19.2",
-		"react-apollo": "^2.0.1",
-		"react-native-modal-datetime-picker": "^4.13.0",
-		"react-native-swipeout": "^2.3.1",
-		"react-navigation": "^1.0.0-beta.21"
-	},
-	"jest": {
-		"preset": "react-native"
-	}
+  "name": "aws-appsync-events",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "jest-expo": "23.0.0",
+    "react-test-renderer": "16.0.0"
+  },
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "node node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "aws-appsync": "^1.0.3",
+    "aws-appsync-react": "^1.0.2",
+    "aws-sdk": "^2.173.0",
+    "graphql-tag": "^2.6.1",
+    "moment": "^2.20.1",
+    "react": "16.0.0",
+    "react-apollo": "^2.0.4",
+    "react-native": "0.50.3",
+    "react-native-modal-datetime-picker": "^4.13.0",
+    "react-native-swipeout": "^2.3.3",
+    "react-navigation": "^1.0.0-beta.22"
+  }
 }

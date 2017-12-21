@@ -1,4 +1,3 @@
 import { AppRegistry } from 'react-native';
 import App from './App';
-
-AppRegistry.registerComponent('events', () => App);
+AppRegistry.registerComponent('awsappsyncevents', () => App);
