@@ -44,7 +44,7 @@ Start the application:
 
 ```
 npm install 
-react-native run-ios   #run-android
+npm run ios   #run-android
 ```
 
 ## Application Walkthrough
