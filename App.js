@@ -1,17 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Platform } from 'react-native';
+import { graphql, ApolloProvider, compose } from 'react-apollo';
+import { StackNavigator } from 'react-navigation';
+
 import AWSAppSyncClient from "aws-appsync";
 import { Rehydrated } from 'aws-appsync-react';
 import { AUTH_TYPE } from "aws-appsync/lib/link/auth-link";
-import { graphql, ApolloProvider, compose } from 'react-apollo';
 import * as AWS from 'aws-sdk';
+
 import awsconfig from './aws-exports';
-import { StackNavigator } from 'react-navigation';
 import AllEvents from './Components/AllEvents'
 import AddEvent from "./Components/AddEvent";
-import ListEvents from './queries/ListEvents';
-import CreateEvent from './queries/CreateEvent';
-import DeleteEvent from './queries/DeleteEvent';
+
+import ListEvents from "./queries/ListEvents";
+import DeleteEvent from "./mutations/DeleteEvent";
+import CreateEvent from "./mutations/CreateEvent";
 
 console.disableYellowBox = true;
 
