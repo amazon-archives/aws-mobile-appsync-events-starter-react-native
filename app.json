@@ -1,6 +1,7 @@
 {
   "expo": {
-    "sdkVersion": "23.0.0"
+    "sdkVersion": "26.0.0",
+    "appKey": "awsappsyncevents"
   },
   "name": "awsappsyncevents",
   "displayName": "Events"

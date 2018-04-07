@@ -58,13 +58,18 @@ npm run ios   #run-android
 ### ./Components/AllEvents.js
 
 - View to display all the events from `./queries/ListEvents.js` with a `ScrollView`
-- Allows you to delete individual events with a swipe. This will use `./queries/DeleteEvent.js`
+- Allows you to delete individual events with a swipe. This will use `./mutations/DeleteEvent.js`
 
 ### ./Components/AddEvent.js
 
-- View to create a new event using `./queries/CreateEvent.js`
+- View to create a new event using `./mutations/CreateEvent.js`
 
 ### ./queries Directory
 
-- Contains GraphQL queries and mutations for interacting with AWS AppSync.
-- Contains two optional queries (`CommentOnEvent.js` and `GetEvent.js`) for you to enhance the sample.
+- Contains GraphQL queries for interacting with AWS AppSync.
+- Contains an optional query (`GetEvent.js`) for you to enhance the sample.
+
+### ./mutations Directory
+
+- Contains GraphQL mutations for interacting with AWS AppSync.
+- Contains an optional mutation (`CommentOnEvent.js`) for you to enhance the sample.

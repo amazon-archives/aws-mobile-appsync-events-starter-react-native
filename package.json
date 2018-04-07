@@ -4,8 +4,8 @@
   "private": true,
   "devDependencies": {
     "babel-preset-react-native-stage-0": "^1.0.1",
-    "jest-expo": "23.0.0",
-    "react-test-renderer": "16.0.0"
+    "jest-expo": "^26.0.0",
+    "react-test-renderer": "^16.3.1"
   },
   "scripts": {
     "start": "react-native start",
@@ -17,16 +17,17 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "aws-appsync": "^1.0.3",
-    "aws-appsync-react": "^1.0.2",
-    "aws-sdk": "^2.173.0",
-    "graphql-tag": "^2.6.1",
-    "moment": "^2.20.1",
-    "react": "16.0.0",
-    "react-apollo": "^2.0.4",
-    "react-native": "0.50.3",
-    "react-native-modal-datetime-picker": "^4.13.0",
+    "expo": "^26.0.0",
+    "aws-appsync": "^1.0.15",
+    "aws-appsync-react": "^1.0.8",
+    "aws-sdk": "^2.222.1",
+    "graphql-tag": "^2.8.0",
+    "moment": "^2.22.0",
+    "react": "^16.3.1",
+    "react-apollo": "^2.1.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz",
+    "react-native-modal-datetime-picker": "^5.1.0",
     "react-native-swipeout": "^2.3.3",
-    "react-navigation": "^1.0.0-beta.22"
+    "react-navigation": "^1.5.11"
   }
 }
