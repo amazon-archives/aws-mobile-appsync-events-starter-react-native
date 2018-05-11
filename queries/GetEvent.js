@@ -1,18 +1,17 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export default gql`
-
-query GetEvent($id: ID!){
-    getEvent(id:$id){
+  query($eventId: ID!) {
+    getEvent(id: $eventId) {
       __typename
       id
       name
       where
       when
       description
-      comments{
-        items{
-          __typename
+      comments {
+        __typename
+        items {
           eventId
           commentId
           content
@@ -21,4 +20,5 @@ query GetEvent($id: ID!){
         nextToken
       }
     }
-}`;
+  }
+`
