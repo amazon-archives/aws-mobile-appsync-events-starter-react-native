@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
-import { ScrollView, Separator, View, Button, Text, TextInput, Alert, StyleSheet } from 'react-native';
+import { ScrollView, Separator, View, Button, Text, TextInput, Alert, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import Swipeout from 'react-native-swipeout';
 
 export default class AllEvents extends Component {
@@ -31,7 +31,7 @@ export default class AllEvents extends Component {
         }
     }
 
-    renderEvents= (event) => {
+    renderEvents = (event) => {
         var swipeoutBtns = [
             {
                 text: 'Delete',
@@ -42,25 +42,26 @@ export default class AllEvents extends Component {
                 }
             }
         ]
-
         return (
             (
                 <Swipeout right={swipeoutBtns}
-                    key={event.id} 
+                    key={event.id}
                     style={styles.swipableItem}
                     autoClose={true}>
-                    <View style={styles.item}>
-                        <View>
-                            <Text style={styles.whenStyle}>{moment.utc(event.when).format('MMM Do')}</Text>
-                            <Text style={styles.dayStyle}>{moment.utc(event.when).format('ddd')}</Text>
+                    <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('EventComments', { eventId: event.id })}>
+                        <View style={styles.item}>
+                            <View>
+                                <Text style={styles.whenStyle}>{moment.utc(event.when).format('MMM Do')}</Text>
+                                <Text style={styles.dayStyle}>{moment.utc(event.when).format('ddd')}</Text>
+                            </View>
+                            <View style={styles.rowSeparator} />
+                            <View style={styles.itemColumn}>
+                                <Text style={styles.eventHeader}>{event.name}</Text>
+                                <Text style={styles.eventTime}>{moment.utc(event.when).format('HH:mm A')}</Text>
+                                <Text style={styles.eventWhere}>{event.where}</Text>
+                            </View>
                         </View>
-                        <View style={styles.rowSeparator} />
-                        <View style={styles.itemColumn}>
-                            <Text style={styles.eventHeader}>{event.name}</Text>
-                            <Text style={styles.eventTime}>{moment.utc(event.when).format('HH:mm A')}</Text>
-                            <Text style={styles.eventWhere}>{event.where}</Text>
-                        </View>
-                    </View>
+                    </TouchableWithoutFeedback>
                 </Swipeout>
             )
         );

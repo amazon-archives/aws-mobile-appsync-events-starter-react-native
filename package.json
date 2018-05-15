@@ -27,6 +27,7 @@
     "react-native": "0.50.3",
     "react-native-modal-datetime-picker": "^4.13.0",
     "react-native-swipeout": "^2.3.3",
-    "react-navigation": "^1.0.0-beta.22"
+    "react-navigation": "^1.0.0-beta.22",
+    "uuid": "^3.2.1"
   }
 }
