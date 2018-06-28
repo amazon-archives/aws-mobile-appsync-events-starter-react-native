@@ -14,5 +14,15 @@ export default gql`
       when
       where
       description
+      comments {
+        __typename
+        items {
+          eventId
+          commentId
+          content
+          createdAt
+        }
+        nextToken
+      }
     }
 }`;
