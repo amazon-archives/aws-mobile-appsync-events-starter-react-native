@@ -18,8 +18,6 @@ import SubscribeToEventComments from './queries/SubscribeToEventComments'
 import CommentOnEvent from './queries/CommentOnEvent'
 import uuidV4 from 'uuid/v4'
 
-console.disableYellowBox = true;
-
 const client = new AWSAppSyncClient({
   url: awsconfig.graphqlEndpoint,
   region: awsconfig.region,
