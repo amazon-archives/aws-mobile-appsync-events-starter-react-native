@@ -17,8 +17,8 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "aws-appsync": "^1.0.3",
-    "aws-appsync-react": "^1.0.2",
+    "aws-appsync": "^1.1.2",
+    "aws-appsync-react": "^1.0.17",
     "aws-sdk": "^2.173.0",
     "graphql-tag": "^2.6.1",
     "moment": "^2.20.1",
