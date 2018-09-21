@@ -16,10 +16,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
-# AppSync config
-aws-exports.js
-
 android/.gradle/
 android/app/build/
 android/build/

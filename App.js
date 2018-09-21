@@ -5,7 +5,7 @@ import { Rehydrated } from 'aws-appsync-react';
 import { AUTH_TYPE } from "aws-appsync/lib/link/auth-link";
 import { graphql, ApolloProvider, compose } from 'react-apollo';
 import * as AWS from 'aws-sdk';
-import awsconfig from './aws-exports';
+import appSyncConfig from './aws-exports';
 import { StackNavigator } from 'react-navigation';
 import AllEvents from './Components/AllEvents'
 import AddEvent from "./Components/AddEvent";
@@ -19,46 +19,49 @@ import CommentOnEvent from './queries/CommentOnEvent'
 import uuidV4 from 'uuid/v4'
 
 const client = new AWSAppSyncClient({
-  url: awsconfig.graphqlEndpoint,
-  region: awsconfig.region,
-  auth: {type: AUTH_TYPE.API_KEY, apiKey: awsconfig.apiKey}
+  url: appSyncConfig.aws_appsync_graphqlEndpoint,
+  region: appSyncConfig.aws_appsync_region,
+  auth: {
+    type: appSyncConfig.aws_appsync_authenticationType,
+    apiKey: appSyncConfig.aws_appsync_apiKey,
+  }
 });
 
-_button = function(navigation){
-  if(Platform.OS === 'ios'){
-    return <Button title='Create' color='#ffffff' onPress={()=> navigation.navigate('AddEvent')} />
-  }else {
-    return <Button title='Create' onPress={()=> navigation.navigate('AddEvent')} />
+_button = function (navigation) {
+  if (Platform.OS === 'ios') {
+    return <Button title='Create' color='#ffffff' onPress={() => navigation.navigate('AddEvent')} />
+  } else {
+    return <Button title='Create' onPress={() => navigation.navigate('AddEvent')} />
   }
 }
 
 const App = StackNavigator({
-  AllEvents : { 
-    screen : (props) => <AllEventWithData {...props}/>,
-    navigationOptions: ({navigation}) => ({
+  AllEvents: {
+    screen: (props) => <AllEventWithData {...props} />,
+    navigationOptions: ({ navigation }) => ({
       title: 'Upcoming Events',
       headerRight: this._button(navigation),
-      headerStyle:{
-        backgroundColor:'#42a1f4',
+      headerStyle: {
+        backgroundColor: '#42a1f4',
       },
-      headerTitleStyle:{
+      headerTitleStyle: {
         color: '#ffffff'
       },
-      headerTintColor:'#ffffff'
+      headerTintColor: '#ffffff'
     })
   },
   AddEvent: {
     screen: (props) => <AddEventData {...props} />,
-     navigationOptions: ({navigation, screenProps}) => {
+    navigationOptions: ({ navigation, screenProps }) => {
       return {
         title: 'Create Event',
-        headerStyle:{
-          backgroundColor:'#42a1f4'
+        headerStyle: {
+          backgroundColor: '#42a1f4'
         },
-        headerTitleStyle:{
+        headerTitleStyle: {
           color: '#ffffff'
         },
-        headerTintColor:'#ffffff'
+        headerTintColor: '#ffffff'
       };
     }
   },
@@ -69,27 +72,27 @@ const App = StackNavigator({
         eventId={props.navigation.state.params.eventId}
       />
     ),
-    navigationOptions: ({navigation, screenProps}) => {
+    navigationOptions: ({ navigation, screenProps }) => {
       return {
         title: 'Comments',
-        headerStyle:{
-          backgroundColor:'#42a1f4'
+        headerStyle: {
+          backgroundColor: '#42a1f4'
         },
-        headerTitleStyle:{
+        headerTitleStyle: {
           color: '#ffffff'
         },
-        headerTintColor:'#ffffff'
+        headerTintColor: '#ffffff'
       };
     }
   }
 });
 
 const WithProvider = () => (
-<ApolloProvider client={client}>
+  <ApolloProvider client={client}>
     <Rehydrated>
-        <App />
+      <App />
     </Rehydrated>
-</ApolloProvider>
+  </ApolloProvider>
 );
 
 export default WithProvider;
@@ -104,14 +107,14 @@ const AllEventWithData = compose(
     })
   }),
   graphql(DeleteEvent, {
-    options:{
+    options: {
       fetchPolicy: 'cache-and-network'
     },
     props: (props) => ({
       onDelete: (event) => {
         props.mutate({
           variables: { id: event.id },
-          optimisticResponse: () => ({ deleteEvent: { ...event, __typename: 'Event', comments: {__typename:"CommentConnection",items:[], nextToken:null} } }),
+          optimisticResponse: () => ({ deleteEvent: { ...event, __typename: 'Event', comments: { __typename: "CommentConnection", items: [], nextToken: null } } }),
         })
       }
     }),
@@ -150,7 +153,7 @@ const AddEventData = compose(
           variables: event,
           optimisticResponse: () => {
             return {
-              createEvent: { ...event, __typename: 'Event', comments: { __typename:"CommentConnection",items:[], nextToken: null } }
+              createEvent: { ...event, __typename: 'Event', comments: { __typename: "CommentConnection", items: [], nextToken: null } }
             }
           },
         });
@@ -163,7 +166,7 @@ const EventCommentsWithSubscription = compose(
   graphql(CommentOnEvent, {
     options: props => ({
       fetchPolicy: 'cache-and-network',
-      update: (proxy, {  data: { commentOnEvent } }) => {
+      update: (proxy, { data: { commentOnEvent } }) => {
         const query = GetEvent;
         const variables = { eventId: props.eventId };
         const data = proxy.readQuery({ query, variables });
@@ -174,8 +177,8 @@ const EventCommentsWithSubscription = compose(
             items: [
               ...data.getEvent.comments.items.filter(c => {
                 return c.content !== commentOnEvent.content &&
-                c.createdAt !== commentOnEvent.createdAt &&
-                c.commentId !== commentOnEvent.commentId
+                  c.createdAt !== commentOnEvent.createdAt &&
+                  c.commentId !== commentOnEvent.commentId
               }),
               commentOnEvent,
             ]
@@ -185,7 +188,7 @@ const EventCommentsWithSubscription = compose(
       },
     }),
     props: props => ({
-      createComment: (comment) => 
+      createComment: (comment) =>
         props.mutate({
           variables: comment,
           optimisticResponse: { commentOnEvent: { ...comment, __typename: 'Comment', commentId: uuidV4() } },
@@ -240,10 +243,10 @@ const EventCommentsWithSubscription = compose(
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
-      flexDirection: 'column',
-      backgroundColor: '#fff',
-      alignItems: 'stretch',
-      justifyContent: 'center',
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#fff',
+    alignItems: 'stretch',
+    justifyContent: 'center',
   },
 });
