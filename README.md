@@ -36,9 +36,9 @@ git clone https://github.com/aws-samples/aws-mobile-appsync-events-starter-react
 cd ./aws-mobile-appsync-events-starter-react-native
 ```
 
-From the homepage of your GraphQL API (you can click the name you entered in the left hand navigation) wait until the progress bar at the top has completed deploying your resources. 
+Wait until the progress bar at the top has completed deploying your resources. Then from the integration page of your GraphQL API (you can click the name you entered in the left hand navigation). 
 
-On this same page, select `React Native` at the bottom to download your `AppSync.js` configuration file into your project directory. Rename it to `aws-exports.js`.
+On this same page, select `JavaScript` at the bottom to download your `aws-exports.js` configuration file by clicking the **Download Config** button. Replace the `aws-exports.js` file in the root of your app with the file you just downloaded.
 
 Start the application:
 
