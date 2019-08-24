@@ -26,6 +26,9 @@ This is a Starter React Native application for using the Sample app in the AWS A
 
 2. Click on `Create API` and select the `Sample Schema` option. Enter a API name of your choice. Click `Create`.
 
+Wait until the progress bar at the top has completed deploying your resources. Then from the integration page of your GraphQL API (you can click the name you entered in the left hand navigation). 
+
+On this same page, select `JavaScript` at the bottom to download your `aws-exports.js` configuration file by clicking the **Download Config** button. Replace the `aws-exports.js` file in the root of your app with the file you just downloaded.
 
 ## React Native Setup
 
@@ -35,10 +38,6 @@ First, clone this repo:
 git clone https://github.com/aws-samples/aws-mobile-appsync-events-starter-react-native.git
 cd ./aws-mobile-appsync-events-starter-react-native
 ```
-
-Wait until the progress bar at the top has completed deploying your resources. Then from the integration page of your GraphQL API (you can click the name you entered in the left hand navigation). 
-
-On this same page, select `JavaScript` at the bottom to download your `aws-exports.js` configuration file by clicking the **Download Config** button. Replace the `aws-exports.js` file in the root of your app with the file you just downloaded.
 
 Start the application:
 
