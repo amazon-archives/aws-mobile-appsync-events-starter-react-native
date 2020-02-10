@@ -52,7 +52,7 @@ npm run ios   #run-android
 ### App.js
 
 - Sets up the application navigation between screens using `StackNavigator`.
-- Configures the `AWSAppSyncClient` using an API Key. This can be confugured to use Amazon Cognito Identity or Amazon Cognito User Pools as well.
+- Configures the `AWSAppSyncClient` using an API Key. This can be configured to use Amazon Cognito Identity or Amazon Cognito User Pools as well.
 - Uses Higher Order Components for making GraphQL calls to AWS AppSync.
 
 ### ./Components/AllEvents.js
